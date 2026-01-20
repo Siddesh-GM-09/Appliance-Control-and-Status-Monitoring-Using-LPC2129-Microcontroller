@@ -10,7 +10,7 @@ Control AC, Bulb, Fan, and TV using UART commands. Status is displayed on LCD an
 - UART interrupt based input
 
 ## Hardware
-- LPC21xx (ARM7)
+- LPC2129 (ARM7)
 - 16x2 LCD
 - UART0 (USB to Serial)
 - Output loads via GPIO (LED/Relay Driver)
