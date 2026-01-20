@@ -1,0 +1,44 @@
+# Build outputs
+*.o
+*.obj
+*.axf
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.d
+*.dep
+*.crf
+*.sct
+
+# Keil uVision project/user files
+*.uvoptx
+*.uvprojx
+*.uvgui.*
+*.uvguix.*
+*.uvuser
+*.uvmpw
+*.uvm
+
+# Keil/ARM logs & temp files
+*.tra
+*.tlf
+*.lnp
+*.orig
+*.bak
+*.tmp
+*.log
+*.htm
+*.build_log.htm
+
+# Output folders (common)
+Objects/
+Listings/
+Debug/
+Release/
+RTE/
+
+# Misc
+EventRecorderStub.scvd
+JLinkLog.txt
