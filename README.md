@@ -1,38 +1,50 @@
-# Appliance Control and Status Monitoring Using LPC2129 (ARM7)
+# ⚡ Appliance Control and Status Monitoring – LPC2129 (ARM7)
 
-Control **AC, Bulb, Fan, and TV** using **UART serial commands** on the **NXP LPC2129 (ARM7)**.  
-The current ON/OFF status is shown on a **16×2 LCD** and also printed to the **UART terminal**.
-
----
-
-## 🚀 Overview
-This embedded mini project implements a simple command-based appliance control system.  
-UART0 receives commands using **interrupt-based input**, and GPIO pins switch outputs (LED/relay driver).  
-LCD + UART terminal provide real-time status monitoring.
+![Platform](https://img.shields.io/badge/Platform-ARM7%20LPC2129-blue)
+![Language](https://img.shields.io/badge/Language-Embedded%20C-green)
+![Interface](https://img.shields.io/badge/Interface-UART0-yellow)
+![Display](https://img.shields.io/badge/Display-16x2%20LCD-orange)
+![Status](https://img.shields.io/badge/Project-Completed-success)
 
 ---
 
-## ✨ Features
-- UART command control: **A/a, B/b, F/f, T/t**
-- **UART0 interrupt-based** command reception
-- GPIO output switching (LED / Relay Driver)
-- **16×2 LCD** real-time status display
-- UART terminal status print (debug + monitoring)
+## 📌 Project Overview
+An **appliance control and monitoring system** using **NXP LPC2129 (ARM7)**.  
+The system controls **AC, Bulb, Fan, and TV** using **UART serial commands**.  
+Current ON/OFF status is displayed on a **16×2 LCD** and also printed to the **UART terminal** for real-time monitoring and debugging.
+
+---
+
+## 🚀 Features
+- UART-based appliance control using single-character commands  
+- **UART0 interrupt-based** command reception  
+- GPIO output control (LED / Relay driver)  
+- **16×2 LCD** real-time status display  
+- UART terminal output for monitoring  
 
 ---
 
 ## 🧰 Hardware Used
-- **NXP LPC2129 (ARM7)**
-- **16×2 LCD (HD44780 compatible)**
-- **UART0** via **USB-to-Serial (UART cable)** / **HC-05 (optional)**
-- Output loads via **GPIO** (LEDs / Relay Driver Module)
-- Power supply as required
+- NXP **LPC2129 (ARM7 Microcontroller)**
+- **16×2 LCD** (HD44780 compatible)
+- UART0 via **USB-to-Serial cable** / **HC-05 Bluetooth module (optional)**
+- LEDs / Relay Driver Module (Appliance simulation)
+- Regulated power supply
 
 ---
 
-## 🔌 Command Menu
+## 🧩 Software & Tools
+- Embedded C
+- Keil µVision IDE
+- UART Serial Terminal (Tera Term / PuTTY)
+- Proteus (optional for simulation)
+
+---
+
+## 🔌 UART Command Menu
+
 | Command | Action |
-|--------:|--------|
+|------:|--------|
 | `A` | AC ON |
 | `a` | AC OFF |
 | `B` | Bulb ON |
@@ -44,27 +56,14 @@ LCD + UART terminal provide real-time status monitoring.
 
 ---
 
-## ⚙️ How It Works (Flow)
-1. UART terminal / Bluetooth sends a single character command  
-2. **UART0 ISR** reads the character  
-3. GPIO output is updated (ON/OFF)  
-4. LCD updates device status  
-5. UART prints updated status
-
----
-
-## 🛠️ Build & Run
-### Using Keil uVision
-1. Open the project in **Keil uVision**
-2. Build the project (Target: **LPC2129**)
-3. Flash the HEX to the board
-4. Open a serial terminal:
-   - **Baud Rate:** 9600  
-   - **Data Bits:** 8  
-   - **Parity:** None  
-   - **Stop Bits:** 1  
-   - **Flow Control:** None
-5. Send commands (`A/a/B/b/F/f/T/t`) and observe LCD + UART output
+## ⚙️ Working Principle
+1. A command character is sent from the UART terminal or Bluetooth module.
+2. **UART0 Interrupt Service Routine (ISR)** receives the command.
+3. LPC2129 decodes the command and controls the corresponding GPIO pin.
+4. Appliance status is updated on:
+   - **16×2 LCD**
+   - **UART terminal**
+5. The system waits for the next command.
 
 ---
 
@@ -78,3 +77,50 @@ T/t : TV ON/OFF
 
 Command: A
 AC -> ON
+```
+
+---
+
+## 🛠️ Build & Run (Keil µVision)
+1. Open the project in **Keil µVision**.
+2. Select target device **LPC2129**.
+3. Build the project and generate HEX file.
+4. Flash the HEX to the board.
+5. Open UART terminal:
+   - Baud Rate: **9600**
+   - Data Bits: **8**
+   - Parity: **None**
+   - Stop Bits: **1**
+6. Send commands and observe LCD + UART output.
+
+---
+
+## 📂 Project Structure
+```
+APPLIANCE_CONTROL_LPC2129/
+├── main.c
+├── header.h
+├── uart0_driver.c
+├── lcd4bit_driver.c
+├── delay.c
+├── Startup.s
+├── project.uvproj
+├── README.md
+```
+
+---
+
+## 🎯 Key Learning Outcomes
+- UART interrupt programming
+- Command-based embedded control
+- GPIO interfacing with ARM7
+- LCD interfacing
+- Real-time embedded system design
+- Debugging using UART terminal
+
+---
+
+## 👤 Author
+**Siddesh G M**  
+Embedded Systems Fresher  
+ARM7 | Embedded C | UART | GPIO
